@@ -1,0 +1,11 @@
+.IdeaTile {
+  display: flex;
+  flex-wrap: wrap;
+
+  &--item {
+    flex: 1 1 33%;
+    margin: 10px;
+    max-width: 50%;
+    min-height: 300px;
+  }
+}

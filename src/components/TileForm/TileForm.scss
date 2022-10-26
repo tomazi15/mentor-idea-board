@@ -1,0 +1,58 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+
+  &__showButton {
+    width: 15%;
+  }
+
+  &__submitButton {
+    width: 15%;
+  }
+
+  &__title {
+    width: 50%;
+
+    &--label {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      width: 250px;
+    }
+
+    input::placeholder {
+      font-size: 12px;
+    }
+
+    p {
+      color: red;
+      font-size: 12px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 25px;
+
+    &--label {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+    }
+    textarea {
+      width: 250px;
+    }
+
+    p {
+      color: red;
+      font-size: 12px;
+    }
+
+    textarea::placeholder {
+      font-size: 12px;
+    }
+  }
+}

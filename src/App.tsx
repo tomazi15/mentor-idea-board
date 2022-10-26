@@ -1,11 +1,17 @@
 import React from "react";
-import "./App.css";
-import { IdeaTile } from "./components/IdeaTile/IdeaTile";
+import "./App.scss";
+import Container from "react-bootstrap/Container";
+
+import { Tile } from "./components/Tile/Tile";
+import { TileForm } from "./components/TileForm/TileForm";
 
 const App = () => {
   return (
     <div className="App">
-      <IdeaTile />
+      <Container>
+        <TileForm />
+        <Tile />
+      </Container>
     </div>
   );
 };
