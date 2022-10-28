@@ -25,11 +25,21 @@ export const Tile: FC = (): JSX.Element => {
     setUpdateToggle({ update: !updateToggle.update, updateTileId: id });
   };
 
-  const handleSave = (id: string, createdAt: string) => {
+  const handleSave = (
+    id: string,
+    title: string,
+    description: string,
+    createdAt: string
+  ) => {
     dispatch(
       updateTile({
         ...updatedTile,
         id,
+        title: updatedTile.title === "" ? title : updatedTile.title,
+        description:
+          updatedTile.description === ""
+            ? description
+            : updatedTile.description,
         createdAt,
         updatedAt: new Date().toLocaleString(),
       })
@@ -89,7 +99,11 @@ export const Tile: FC = (): JSX.Element => {
 
                 {updateToggle.update ? (
                   <>
-                    <button onClick={() => handleSave(id, createdAt)}>
+                    <button
+                      onClick={() =>
+                        handleSave(id, title, description, createdAt)
+                      }
+                    >
                       Save
                     </button>
                   </>
