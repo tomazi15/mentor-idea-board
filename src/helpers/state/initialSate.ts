@@ -1,5 +1,5 @@
-import { State } from "../../types/types";
+import { InitialState } from "../../types/types";
 
-export const initialState: State = {
+export const initialState: InitialState = {
   tiles: [],
 };

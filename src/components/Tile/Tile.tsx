@@ -3,16 +3,17 @@ import "./Tile.scss";
 import { Card, Alert } from "react-bootstrap";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { deleteTile, updateTile } from "../../features/tileSlice";
+import { ToggleUseState, UpdateTileUseState } from "../../types/types";
 
 export const Tile: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { tiles } = useAppSelector((state) => state.ideaBoard);
 
-  const [updateToggle, setUpdateToggle] = useState({
+  const [updateToggle, setUpdateToggle] = useState<ToggleUseState>({
     update: false,
     updateTileId: "",
   });
-  const [updatedTile, setUpdatedTile] = useState({
+  const [updatedTile, setUpdatedTile] = useState<UpdateTileUseState>({
     title: "",
     description: "",
   });
@@ -47,11 +48,13 @@ export const Tile: FC = (): JSX.Element => {
     setUpdateToggle({ ...updateToggle, update: !updateToggle.update });
   };
 
-  const handelTitleChange = (e: any) => {
+  const handelTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUpdatedTile({ ...updatedTile, title: e.target.value });
   };
 
-  const handelDescriptionChange = (e: any) => {
+  const handelDescriptionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setUpdatedTile({ ...updatedTile, description: e.target.value });
   };
 
