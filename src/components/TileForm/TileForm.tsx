@@ -1,7 +1,7 @@
 import React, { useState, FC } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { formSchema } from "./Validations/Validations";
+import { formSchema } from "../../helpers/Validations/Validations";
 import { FormValues, NewTile } from "../../types/types";
 import "./TileForm.scss";
 import { addNewTile } from "../../features/tileSlice";
@@ -27,9 +27,6 @@ export const TileForm: FC = (): JSX.Element => {
       id: uuid(),
       createdAt: new Date().toLocaleString(),
     };
-
-    console.log("HELLO", newTile);
-
     dispatch(addNewTile(newTile));
   });
 

@@ -8,8 +8,9 @@ export type State = {
 };
 
 export type NewTile = {
-  createdAt: string;
-  description: string;
-  id: string;
+  id?: string;
   title: string;
+  description: string;
+  createdAt: string;
+  updatedAt?: string;
 };

@@ -12,15 +12,21 @@ export const tileSlice = createSlice({
     },
 
     deleteTile: (state, { payload }): any => {
-      // return {
-      //   tiles: [...state.tiles.filter((tile) => tile.id !== payload.id)],
-      // };
+      return {
+        tiles: [...state.tiles.filter((tile) => tile["id"] !== payload)],
+      };
     },
-    updateTile: (state, action) => {},
-    clearStore: (state, action) => {},
+    updateTile: (state, { payload }): any => {
+      return {
+        tiles: [
+          ...state.tiles.map((tile) =>
+            tile["id"] === payload.id ? { ...payload } : tile
+          ),
+        ],
+      };
+    },
   },
 });
 
-export const { addNewTile, updateTile, deleteTile, clearStore } =
-  tileSlice.actions;
+export const { addNewTile, deleteTile, updateTile } = tileSlice.actions;
 export default tileSlice.reducer;
