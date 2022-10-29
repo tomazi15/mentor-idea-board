@@ -41,8 +41,15 @@ export const TileForm: FC = (): JSX.Element => {
             <label className="Form__title--label" htmlFor="title">
               Title
             </label>
-            <input {...register("title")} type="text" placeholder="Title..." />
-            {errors?.title && <p>{errors.title.message}</p>}
+            <input
+              {...register("title")}
+              type="text"
+              placeholder="Title..."
+              data-testid="titleInput"
+            />
+            {errors?.title && (
+              <p data-testid="titleError">{errors.title.message}</p>
+            )}
           </div>
           <div className="Form__description">
             <label className="Form__description--label" htmlFor="description">
@@ -51,8 +58,11 @@ export const TileForm: FC = (): JSX.Element => {
             <textarea
               {...register("description")}
               placeholder="Description..."
+              data-testid="descriptionInput"
             />
-            {errors?.description && <p>{errors.description.message}</p>}
+            {errors?.description && (
+              <p data-testid="descriptionError">{errors.description.message}</p>
+            )}
           </div>
           <div>
             <button id="submit" className="Form__submitButton" type="submit">

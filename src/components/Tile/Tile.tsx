@@ -70,6 +70,7 @@ export const Tile: FC = (): JSX.Element => {
               style={{ width: "18rem" }}
               className="mb-2 IdeaTile--item"
               key={id}
+              data-testid="tileComponent"
             >
               <Card.Body>
                 <div className="IdeaTile--update">
