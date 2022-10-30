@@ -9,6 +9,8 @@ export const Tile: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { tiles } = useAppSelector((state) => state.ideaBoard);
 
+  console.log({ tiles });
+
   const [updateToggle, setUpdateToggle] = useState<ToggleUseState>({
     update: false,
     updateTileId: "",
@@ -22,7 +24,7 @@ export const Tile: FC = (): JSX.Element => {
     dispatch(deleteTile(id));
   };
 
-  const handleUpdate = (id: string) => {
+  const handleUpdate = (id: string) => () => {
     setUpdateToggle({ update: !updateToggle.update, updateTileId: id });
   };
 
@@ -95,10 +97,10 @@ export const Tile: FC = (): JSX.Element => {
                 </div>
               </Card.Body>
               <Card.Footer>
-                {!updatedAt ? (
-                  <p>Added: {createdAt}</p>
-                ) : (
+                {createdAt ? (
                   <p>Updated: {updatedAt}</p>
+                ) : (
+                  <p>Added: {createdAt}</p>
                 )}
 
                 {updateToggle.update ? (
@@ -113,7 +115,7 @@ export const Tile: FC = (): JSX.Element => {
                   </>
                 ) : (
                   <>
-                    <button onClick={() => handleUpdate(id)}>Update</button>
+                    <button onClick={handleUpdate(id)}>Update</button>
                   </>
                 )}
 

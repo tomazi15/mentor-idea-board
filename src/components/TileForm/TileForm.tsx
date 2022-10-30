@@ -8,9 +8,12 @@ import { addNewTile } from "../../features/tileSlice";
 import { useAppDispatch } from "../../app/hooks";
 import uuid from "react-uuid";
 
+// DRY
+// WET -> Write Everything Twice
+
 export const TileForm: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const [showForm, setShowForm] = useState<ShowFormUseState>(false);
+  const [showForm, setShowForm] = useState(false);
   const handleShowForm = () => setShowForm(!showForm);
 
   const {
