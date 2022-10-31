@@ -1,0 +1,55 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+  padding: 20px;
+  border-style: solid;
+
+  &__showButton {
+    width: 15%;
+  }
+
+  &__submitButton {
+    width: 15%;
+  }
+
+  &__title {
+    display: grid;
+
+    &--label {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input::placeholder {
+      font-size: 12px;
+    }
+
+    p {
+      color: red;
+      font-size: 12px;
+    }
+  }
+
+  &__description {
+    display: grid;
+    width: 100%;
+    margin-bottom: 25px;
+
+    &--label {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    p {
+      color: red;
+      font-size: 12px;
+    }
+
+    textarea::placeholder {
+      font-size: 12px;
+    }
+  }
+}
