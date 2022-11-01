@@ -39,7 +39,7 @@ export const TileForm: FC = (): JSX.Element => {
         Add New Idea
       </button>
       {showForm ? (
-        <form onSubmit={onSubmit}>
+        <form data-testid="form" onSubmit={onSubmit}>
           <div className="Form__title">
             <label className="Form__title--label" htmlFor="title">
               Title

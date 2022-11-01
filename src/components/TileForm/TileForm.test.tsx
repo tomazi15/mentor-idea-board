@@ -1,6 +1,6 @@
 import { TileForm } from "./TileForm";
 import { App } from "../../App";
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "../../utils/test-utils";
 
@@ -37,36 +37,40 @@ describe("TileForm component", () => {
     expect(newTile).toBeInTheDocument();
   });
 
-  // describe("TileForm Validations", () => {
-  //   test("throws title must be at least 1 characters", async () => {
-  //     renderWithProviders(<TileForm />);
+  describe("TileForm Validations", () => {
+    test("throws title must be at least 1 characters", async () => {
+      renderWithProviders(<TileForm />);
 
-  //     const error = "title must be at least 1 characters";
+      const titleError = "title must be at least 1 characters";
+      const addNewIdeaButton = screen.getByText("Add New Idea");
+      await userEvent.click(addNewIdeaButton);
+      const descriptionInput = screen.getByTestId("descriptionInput");
+      await userEvent.type(descriptionInput, "foo");
+      const addButton = screen.getByText("Add");
+      await userEvent.click(addButton);
 
-  //     const addNewIdeaButton = screen.getByText("Add New Idea");
-  //     await userEvent.click(addNewIdeaButton);
-  //     const descriptionInput = screen.getByTestId("descriptionInput");
-  //     await userEvent.type(descriptionInput, "foo");
-  //     const addButton = screen.getByText("Add");
-  //     await userEvent.click(addButton);
-  //     const titleInputError = screen.getByTestId("titleError");
+      await waitFor(async () => {
+        expect(await screen.findByText(titleError)).toHaveTextContent(
+          titleError
+        );
+      });
+    });
+    test("throws description must be at least 1 characters", async () => {
+      renderWithProviders(<TileForm />);
 
-  //     expect(titleInputError).toHaveValue(error);
-  //   });
-  //   test("throws description must be at least 1 characters", async () => {
-  //     renderWithProviders(<TileForm />);
+      const descriptionError = "description must be at least 1 characters";
+      const addNewIdeaButton = screen.getByText("Add New Idea");
+      await userEvent.click(addNewIdeaButton);
+      const titleInput = screen.getByTestId("titleInput");
+      await userEvent.type(titleInput, "foo");
+      const addButton = screen.getByText("Add");
+      await userEvent.click(addButton);
 
-  //     const error = "title must be at least 1 characters";
-
-  //     const addNewIdeaButton = screen.getByText("Add New Idea");
-  //     await userEvent.click(addNewIdeaButton);
-  //     const titleInput = screen.getByTestId("titleInput");
-  //     await userEvent.type(titleInput, "foo");
-  //     const addButton = screen.getByText("Add");
-  //     await userEvent.click(addButton);
-  //     const descriptionInputError = screen.getByTestId("descriptionError");
-
-  //     expect(descriptionInputError).toHaveValue(error);
-  //   });
-  // });
+      await waitFor(async () => {
+        expect(await screen.findByText(descriptionError)).toHaveTextContent(
+          descriptionError
+        );
+      });
+    });
+  });
 });

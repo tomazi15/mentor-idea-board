@@ -1,15 +1,22 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { store } from "./app/store";
 import { App } from "./App";
+import { screen } from "@testing-library/react";
+import { renderWithProviders } from "./utils/test-utils";
 
-test("renders learn react link", () => {
-  const { getByText } = render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
+describe("App Component", () => {
+  test("renders TileForm", () => {
+    renderWithProviders(<App />);
 
-  // expect(getByText(/learn/i)).toBeInTheDocument();
+    const tileFormComponent = screen.getByRole("button", {
+      name: /add new idea/i,
+    });
+
+    expect(tileFormComponent).toBeInTheDocument();
+  });
+  test("renders Tile", () => {
+    renderWithProviders(<App />);
+
+    const tileComponent = screen.getByRole("alert");
+    expect(tileComponent).toBeInTheDocument();
+  });
 });

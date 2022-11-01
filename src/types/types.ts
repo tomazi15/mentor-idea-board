@@ -2,13 +2,15 @@ export type InitialState = {
   tiles: NewTile[];
 };
 
-export type DeleteTile = string;
-
-export type FormValues = {
+export type NewTile = {
+  id: string;
   title: string;
   description: string;
+  createdAt: string;
+  updatedAt?: string;
 };
 
+<<<<<<< Updated upstream
 export type UpdateTileUseState = {
   title: string;
   description: string;
@@ -16,10 +18,13 @@ export type UpdateTileUseState = {
 
 export type NewTile = FormValues & {
   id: string;
+=======
+export type DeleteTile = string;
+
+export type FormValues = {
+>>>>>>> Stashed changes
   title: string;
   description: string;
-  createdAt: string;
-  updatedAt?: string;
 };
 
 // export type TitleDescription = Pick<NewTile, 'title' | 'description'>;
