@@ -2,20 +2,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "../../utils/test-utils";
 import { Tile } from "./Tile";
-import { oneTile } from "./Tile.fixtures";
-
-// import { useAppSelector, useAppDispatch } from "../../app/hooks";
-
-// const mockDispatch = jest.fn();
-
-// jest.mock("../../app/hooks", () => ({
-//   useAppDispatch: () => mockDispatch(),
-//   useAppSelector: () => ({ tiles: [{ title: "hello world" }] }),
-// }));
-
-// Renders tile with title description created att, update and delete button
-// Delete tile
-// Updates tile with new title description and Updated
+import { oneTile } from "../../helpers/TestFixtures/TestFixtures";
 
 describe("Tile", () => {
   test("renders all elements of Tile component", () => {

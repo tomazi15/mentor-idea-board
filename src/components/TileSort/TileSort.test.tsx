@@ -2,7 +2,7 @@ import { TileSort } from "./TileSort";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "../../utils/test-utils";
-import { twoTiles, oneTile } from "./TileSort.fixtures";
+import { twoTiles, oneTile } from "../../helpers/TestFixtures/TestFixtures";
 
 describe("TileSort", () => {
   test("renders tile sort if at least two tiles have been added", () => {
