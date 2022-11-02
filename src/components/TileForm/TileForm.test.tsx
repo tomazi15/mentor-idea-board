@@ -10,8 +10,8 @@ describe("TileForm component", () => {
 
     const addNewIdeaButton = screen.getByText("Add New Idea");
     await userEvent.click(addNewIdeaButton);
-    const titleInput = screen.queryByPlaceholderText("Title...");
-    const descriptionInput = screen.queryByPlaceholderText("Description...");
+    const titleInput = screen.getByPlaceholderText(/title\.\.\./i);
+    const descriptionInput = screen.getByPlaceholderText(/description\.\.\./i);
     const addButton = screen.getByText("Add");
 
     expect(titleInput).toBeInTheDocument();
@@ -24,9 +24,9 @@ describe("TileForm component", () => {
 
     const addNewIdeaButton = screen.getByText("Add New Idea");
     await userEvent.click(addNewIdeaButton);
-    const titleInput = screen.getByTestId("titleInput");
+    const titleInput = screen.getByPlaceholderText(/title\.\.\./i);
     await userEvent.type(titleInput, "foo");
-    const descriptionInput = screen.getByTestId("descriptionInput");
+    const descriptionInput = screen.getByPlaceholderText(/description\.\.\./i);
     await userEvent.type(descriptionInput, "bar");
     const addButton = screen.getByText("Add");
     await userEvent.click(addButton);
@@ -44,7 +44,8 @@ describe("TileForm component", () => {
       const titleError = "title must be at least 1 characters";
       const addNewIdeaButton = screen.getByText("Add New Idea");
       await userEvent.click(addNewIdeaButton);
-      const descriptionInput = screen.getByTestId("descriptionInput");
+      const descriptionInput =
+        screen.getByPlaceholderText(/description\.\.\./i);
       await userEvent.type(descriptionInput, "foo");
       const addButton = screen.getByText("Add");
       await userEvent.click(addButton);
@@ -61,7 +62,7 @@ describe("TileForm component", () => {
       const descriptionError = "description must be at least 1 characters";
       const addNewIdeaButton = screen.getByText("Add New Idea");
       await userEvent.click(addNewIdeaButton);
-      const titleInput = screen.getByTestId("titleInput");
+      const titleInput = screen.getByPlaceholderText(/title\.\.\./i);
       await userEvent.type(titleInput, "foo");
       const addButton = screen.getByText("Add");
       await userEvent.click(addButton);

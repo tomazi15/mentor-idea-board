@@ -1,13 +1,12 @@
 import React, { useState, FC } from "react";
 import "./Tile.scss";
 import { Card, Alert } from "react-bootstrap";
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { useAppDispatch } from "../../app/hooks";
 import { deleteTile, updateTile } from "../../features/tileSlice";
-import { ToggleUseState } from "../../types/types";
+import { InitialState, ToggleUseState } from "../../types/types";
 
-export const Tile: FC = (): JSX.Element => {
+export const Tile: FC<InitialState> = ({ tiles }) => {
   const dispatch = useAppDispatch();
-  const { tiles } = useAppSelector((state) => state.ideaBoard);
 
   const [updateToggle, setUpdateToggle] = useState<ToggleUseState>({
     update: false,

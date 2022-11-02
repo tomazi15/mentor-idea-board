@@ -16,7 +16,7 @@ export const App: FC = (): JSX.Element => {
         <h1 className="App--heading">Ideas Board</h1>
         <TileForm />
         <TileSort tiles={tiles} />
-        <Tile />
+        <Tile tiles={tiles} />
       </Container>
     </div>
   );
