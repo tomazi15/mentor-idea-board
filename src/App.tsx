@@ -7,7 +7,7 @@ import { TileSort } from "./components/TileSort/TileSort";
 import { useAppSelector } from "./app/hooks";
 import { InitialState } from "./types/types";
 
-export const App: FC = (): JSX.Element => {
+export const App: FC = () => {
   const { tiles }: InitialState = useAppSelector((state) => state.ideaBoard);
 
   return (
