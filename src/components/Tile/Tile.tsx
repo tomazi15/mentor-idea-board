@@ -3,19 +3,17 @@ import "./Tile.scss";
 import { Card, Alert } from "react-bootstrap";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { deleteTile, updateTile } from "../../features/tileSlice";
-import { ToggleUseState, UpdateTileUseState } from "../../types/types";
+import { ToggleUseState } from "../../types/types";
 
 export const Tile: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { tiles } = useAppSelector((state) => state.ideaBoard);
 
-  console.log({ tiles });
-
   const [updateToggle, setUpdateToggle] = useState<ToggleUseState>({
     update: false,
     updateTileId: "",
   });
-  const [updatedTile, setUpdatedTile] = useState<UpdateTileUseState>({
+  const [updatedTile, setUpdatedTile] = useState({
     title: "",
     description: "",
   });
@@ -97,10 +95,11 @@ export const Tile: FC = (): JSX.Element => {
                 </div>
               </Card.Body>
               <Card.Footer>
+                {/* This is wrong i need to actually compare the time between the two */}
                 {createdAt ? (
-                  <p>Updated: {updatedAt}</p>
-                ) : (
                   <p>Added: {createdAt}</p>
+                ) : (
+                  <p>Updated: {updatedAt}</p>
                 )}
 
                 {updateToggle.update ? (

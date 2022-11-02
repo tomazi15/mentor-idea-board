@@ -18,7 +18,7 @@ export const tileSlice = createSlice({
       };
     },
     updateTile: (state, { payload }: PayloadAction<NewTile>) => {
-      console.log("UPDATE", payload);
+      console.log(payload);
       return {
         tiles: [
           ...state.tiles.map((tile) =>
@@ -27,8 +27,18 @@ export const tileSlice = createSlice({
         ],
       };
     },
+    sortTile: (state, { payload }) => {
+      payload
+        ? state.tiles.sort((firstItem, secondItem) => {
+            return firstItem.createdAt.localeCompare(secondItem.createdAt);
+          })
+        : state.tiles.sort((firstItem, secondItem) => {
+            return firstItem.title.localeCompare(secondItem.title);
+          });
+    },
   },
 });
 
-export const { addNewTile, deleteTile, updateTile } = tileSlice.actions;
+export const { addNewTile, deleteTile, updateTile, sortTile } =
+  tileSlice.actions;
 export default tileSlice.reducer;

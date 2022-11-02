@@ -2,14 +2,11 @@ import React, { useState, FC } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../../helpers/Validations/Validations";
-import { FormValues, NewTile, ShowFormUseState } from "../../types/types";
+import { FormValues, NewTile } from "../../types/types";
 import "./TileForm.scss";
 import { addNewTile } from "../../features/tileSlice";
 import { useAppDispatch } from "../../app/hooks";
 import uuid from "react-uuid";
-
-// DRY
-// WET -> Write Everything Twice
 
 export const TileForm: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();

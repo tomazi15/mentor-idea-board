@@ -10,19 +10,9 @@ export type NewTile = {
   updatedAt?: string;
 };
 
-<<<<<<< Updated upstream
-export type UpdateTileUseState = {
-  title: string;
-  description: string;
-};
-
-export type NewTile = FormValues & {
-  id: string;
-=======
 export type DeleteTile = string;
 
 export type FormValues = {
->>>>>>> Stashed changes
   title: string;
   description: string;
 };
