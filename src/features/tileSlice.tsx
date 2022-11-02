@@ -18,7 +18,6 @@ export const tileSlice = createSlice({
       };
     },
     updateTile: (state, { payload }: PayloadAction<NewTile>) => {
-      console.log(payload);
       return {
         tiles: [
           ...state.tiles.map((tile) =>
