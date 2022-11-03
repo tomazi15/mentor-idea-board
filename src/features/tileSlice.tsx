@@ -13,20 +13,17 @@ export const tileSlice = createSlice({
   initialState,
   reducers: {
     addNewTile: (state, { payload }: PayloadAction<AddNewTileAction>) => {
-      console.log("NEW", payload);
       return {
         tiles: [...state.tiles, payload],
       };
     },
 
     deleteTile: (state, { payload }: PayloadAction<DeleteTileAction>) => {
-      console.log("DELETE", payload);
       return {
         tiles: [...state.tiles.filter((tile) => tile.id !== payload)],
       };
     },
     updateTile: (state, { payload }: PayloadAction<UpdateTileAction>) => {
-      console.log("UPDATE", payload);
       return {
         tiles: [
           ...state.tiles.map((tile) =>

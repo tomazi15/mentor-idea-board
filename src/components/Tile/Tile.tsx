@@ -5,7 +5,6 @@ import { useAppDispatch } from "../../app/hooks";
 import { deleteTile, updateTile } from "../../features/tileSlice";
 import {
   InitialState,
-  NewTile,
   ToggleUseState,
   UpdateTileState,
 } from "../../types/types";
