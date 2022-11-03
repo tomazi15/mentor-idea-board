@@ -17,6 +17,7 @@ export const TileForm: FC = () => {
     register,
     handleSubmit,
     formState: { errors },
+    resetField,
   } = useForm<FormValues>({
     resolver: yupResolver(formSchema),
   });
@@ -28,6 +29,8 @@ export const TileForm: FC = () => {
       createdAt: new Date().toLocaleString(),
     };
     dispatch(addNewTile(newTile));
+    resetField("title");
+    resetField("description");
   });
 
   return (
