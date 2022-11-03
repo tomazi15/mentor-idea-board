@@ -7,7 +7,7 @@
 
 ### Overview
 
-The purposes of this project was to display all the necessary skills required to buld a `React` app and manage `Redux` state as well as other aspect of FE development such a `Testing`, `CSS` or `Typesctip`
+The purposes of this project was to display all the necessary skills required to buld a `React` app and manage `Redux` state as well as other aspect of FE development such a `Testing`, `CSS` or `Typesctips`
 
 ### Key Features
 
@@ -20,8 +20,8 @@ By default the cards are sorted by Date Added but the user can also sort the car
 
 Clone the repo then `npm install` and finally `yarn start` the project will be exposed on `http://localhost:3000`
 
-To add a card: 
-  1. Click `Add New Idea` button which will open a form
-  2. Add title, description and hit `Add` button
-  3. The Card should appear under the form
- 
+To add a card:
+
+1. Click `Add New Idea` button which will open a form
+2. Add title, description and hit `Add` button
+3. The Card should appear under the form
