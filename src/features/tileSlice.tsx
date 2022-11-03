@@ -1,24 +1,32 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "../helpers/state/initialSate";
-import { NewTile, DeleteTile } from "../types/types";
+import {
+  AddNewTileAction,
+  DeleteTileAction,
+  SortTileAction,
+  UpdateTileAction,
+} from "../types/types";
 import { setLocalStorage } from "../helpers/localStorage/localStorage";
 
 export const tileSlice = createSlice({
   name: "tile",
   initialState,
   reducers: {
-    addNewTile: (state, { payload }: PayloadAction<NewTile>) => {
+    addNewTile: (state, { payload }: PayloadAction<AddNewTileAction>) => {
+      console.log("NEW", payload);
       return {
         tiles: [...state.tiles, payload],
       };
     },
 
-    deleteTile: (state, { payload }: PayloadAction<DeleteTile>) => {
+    deleteTile: (state, { payload }: PayloadAction<DeleteTileAction>) => {
+      console.log("DELETE", payload);
       return {
         tiles: [...state.tiles.filter((tile) => tile.id !== payload)],
       };
     },
-    updateTile: (state, { payload }: PayloadAction<NewTile>) => {
+    updateTile: (state, { payload }: PayloadAction<UpdateTileAction>) => {
+      console.log("UPDATE", payload);
       return {
         tiles: [
           ...state.tiles.map((tile) =>
@@ -27,7 +35,7 @@ export const tileSlice = createSlice({
         ],
       };
     },
-    sortTile: (state, { payload }) => {
+    sortTile: (state, { payload }: PayloadAction<SortTileAction>) => {
       payload
         ? state.tiles.sort((firstItem, secondItem) => {
             return firstItem.createdAt.localeCompare(secondItem.createdAt);

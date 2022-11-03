@@ -2,6 +2,7 @@
   "name": "mentor-idea-board",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tomazi15.github.io/mentor-idea-board",
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
     "@reduxjs/toolkit": "^1.8.6",
@@ -27,6 +28,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -48,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
