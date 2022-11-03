@@ -28,6 +28,10 @@
     display: flex;
     flex-direction: column;
   }
+
+  &--dates {
+    font-size: 12px;
+  }
 }
 
 .IdeaTile:last-of-type {

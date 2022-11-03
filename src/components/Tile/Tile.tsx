@@ -98,13 +98,13 @@ export const Tile: FC<InitialState> = ({ tiles }) => {
                 </div>
               </Card.Body>
               <Card.Footer>
-                {/* This is wrong i need to actually compare the time between the two */}
-                {createdAt ? (
-                  <p>Added: {createdAt}</p>
-                ) : (
-                  <p>Updated: {updatedAt}</p>
-                )}
-
+                <div className="IdeaTile--dates">
+                  {updatedAt ? (
+                    <p>Updated: {updatedAt.replace(/,/, "")}</p>
+                  ) : (
+                    <p>Added: {createdAt.replace(/,/, "")}</p>
+                  )}
+                </div>
                 {updateToggle.update ? (
                   <>
                     <button
