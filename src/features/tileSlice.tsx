@@ -6,6 +6,7 @@ import {
   SortTileAction,
   UpdateTileAction,
 } from "../types/types";
+import { setLocalStorage } from "../helpers/localStorage/localStorage";
 
 export const tileSlice = createSlice({
   name: "tile",
@@ -43,9 +44,10 @@ export const tileSlice = createSlice({
             return firstItem.title.localeCompare(secondItem.title);
           });
     },
+    rehydrateBoard: (state) => setLocalStorage(state),
   },
 });
 
-export const { addNewTile, deleteTile, updateTile, sortTile } =
+export const { addNewTile, deleteTile, updateTile, sortTile, rehydrateBoard } =
   tileSlice.actions;
 export default tileSlice.reducer;
