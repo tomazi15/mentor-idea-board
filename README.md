@@ -7,7 +7,7 @@
 
 ### Overview
 
-The purposes of this project was to display all the necessary skills required to buld a `React` app and manage `Redux` state as well as other aspect of FE development such a `Testing`, `CSS` or `Typesctips`
+The purposes of this project was to display all the necessary skills required to buld a `React` app and manage `Redux` state as well as other aspect of FE development such a `Testing`, `CSS` or `Typesctip`
 
 ### Key Features
 
