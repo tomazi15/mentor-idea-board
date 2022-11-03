@@ -3,7 +3,12 @@ import "./Tile.scss";
 import { Card, Alert } from "react-bootstrap";
 import { useAppDispatch } from "../../app/hooks";
 import { deleteTile, updateTile } from "../../features/tileSlice";
-import { InitialState, ToggleUseState } from "../../types/types";
+import {
+  InitialState,
+  NewTile,
+  ToggleUseState,
+  UpdateTileState,
+} from "../../types/types";
 
 export const Tile: FC<InitialState> = ({ tiles }) => {
   const dispatch = useAppDispatch();
@@ -12,12 +17,12 @@ export const Tile: FC<InitialState> = ({ tiles }) => {
     update: false,
     updateTileId: "",
   });
-  const [updatedTile, setUpdatedTile] = useState({
+  const [updatedTile, setUpdatedTile] = useState<UpdateTileState>({
     title: "",
     description: "",
   });
 
-  const handleDelete = (id: string) => {
+  const handleDelete = (id: string) => () => {
     dispatch(deleteTile(id));
   };
 
@@ -117,7 +122,7 @@ export const Tile: FC<InitialState> = ({ tiles }) => {
                   </>
                 )}
 
-                <button onClick={() => handleDelete(id)}>Delete</button>
+                <button onClick={handleDelete(id)}>Delete</button>
               </Card.Footer>
             </Card>
           );

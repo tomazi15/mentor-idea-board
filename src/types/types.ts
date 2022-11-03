@@ -10,19 +10,18 @@ export type NewTile = {
   updatedAt?: string;
 };
 
-export type DeleteTile = string;
+// action payload types
+export type AddNewTileAction = NewTile;
+export type DeleteTileAction = string;
+export type UpdateTileAction = NewTile;
+export type SortTileAction = boolean;
 
-export type FormValues = {
-  title: string;
-  description: string;
-};
-
-// export type TitleDescription = Pick<NewTile, 'title' | 'description'>;
-// export type TitleDescriptionTwo = Omit<NewTile, 'id' | 'createdAt'>;
-
+// use state types
+export type UpdateTileState = Pick<NewTile, "title" | "description">;
 export type ToggleUseState = {
   update: boolean;
   updateTileId: string;
 };
 
-export type ShowFormUseState = boolean;
+// other types
+export type FormValues = Pick<NewTile, "title" | "description">;

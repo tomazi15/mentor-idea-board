@@ -10,7 +10,7 @@ import uuid from "react-uuid";
 
 export const TileForm: FC = () => {
   const dispatch = useAppDispatch();
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState<boolean>(false);
   const handleShowForm = () => setShowForm(!showForm);
 
   const {
