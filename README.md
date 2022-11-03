@@ -25,3 +25,7 @@ To add a card:
 1. Click `Add New Idea` button which will open a form
 2. Add title, description and hit `Add` button
 3. The Card should appear under the form
+4. To see the sorting options add more then 1 cars on to the board
+5. The Cards are persisted in local storage.
+6. Use delete button to remove the card both from the board and local storage
+7. If required existing cards can be updated by hitting the update button which will allow in line editing
