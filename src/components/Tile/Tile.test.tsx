@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "../../utils/test-utils";
 import { Tile } from "./Tile";
@@ -26,17 +26,17 @@ describe("Tile", () => {
     expect(titleUpdateBtn).toBeInTheDocument();
     expect(titleDeleteBtn).toBeInTheDocument();
   });
-  xdescribe("Tile Delete", () => {
+  describe("Tile Delete", () => {
     test("removes tile when delete button clicked", async () => {
       renderWithProviders(<Tile tiles={oneTile} />);
 
-      const tileComponent = screen.queryByTestId("tileComponent");
       const titleDeleteBtn = screen.getByRole("button", {
-        name: /delete/i,
+        name: /Delete/i,
       });
-      await userEvent.click(titleDeleteBtn);
 
-      expect(tileComponent).not.toBeInTheDocument();
+      await waitFor(async () => await userEvent.click(titleDeleteBtn));
+
+      expect(screen.queryByTestId("tileComponent")).not.toBeInTheDocument();
     });
   });
   xdescribe("Tile Update", () => {
